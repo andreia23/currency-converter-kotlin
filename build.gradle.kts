@@ -13,6 +13,11 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test-junit"))
+    implementation( "io.javalin:javalin:4.1.1")
+    implementation("org.slf4j:slf4j-simple:1.7.32")
+    implementation("org.jetbrains.exposed:exposed:0.17.14")
+    implementation("org.koin:koin-core:0.9.3")
+
 }
 
 tasks.test {
