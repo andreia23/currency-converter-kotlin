@@ -1,6 +1,7 @@
 package config.modules
 
 import controller.UserController
+import org.koin.dsl.module
 
 object ControllerModule {
 
