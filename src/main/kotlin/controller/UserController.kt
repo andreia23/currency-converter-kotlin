@@ -1,6 +1,6 @@
 package controller
 
-import io.javalin.http.Context
+import io.javalin.Context
 import model.dto.UserDTO
 import service.UserService
 

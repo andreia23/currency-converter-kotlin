@@ -1,5 +1,6 @@
 package model.entity
 
+import model.resources.Currency
 import java.math.BigDecimal
 import java.time.Instant
 
