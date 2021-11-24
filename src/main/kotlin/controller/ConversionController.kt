@@ -1,4 +1,17 @@
 package controller
 
-class ConversionController {
+import model.request.ConversionRequest
+import service.ConversionService
+import io.javalin.Context
+
+class ConversionController(
+    private val conversionService: ConversionService
+) {
+    fun convertCurrency(ctx:Context){
+        ctx.body<ConversionRequest>().run {
+            ctx.json(conversionService.convertCurrency
+                (ctx.pathParam(":id").toLong(),this))
+
+        }
+    }
 }

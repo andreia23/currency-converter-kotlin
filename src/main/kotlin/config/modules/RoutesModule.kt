@@ -6,6 +6,6 @@ import routes.ConversionRoutes
 object RoutesModule {
 
     fun modules() = module {
-        single { ConversionRoutes(get(), get()) }
+        single { ConversionRoutes(get(), get(), get()) }
     }
 }

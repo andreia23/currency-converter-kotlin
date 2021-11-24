@@ -8,7 +8,7 @@ import io.javalin.apibuilder.ApiBuilder.*
 class ConversionRoutes(
     private val userController: UserController,
     private val transactionController: TransactionController,
-//    private val conversionController: ConversionController
+    private val conversionController: ConversionController
 ) {
     fun registerRoutes(){
         path("v1/register"){
@@ -18,6 +18,11 @@ class ConversionRoutes(
             get(transactionController::getFindAll)
             path(":id"){
                 get(transactionController::getTransactionsByUser)
+            }
+        }
+        path("v1/converter"){
+            path(":id"){
+                post(conversionController::convertCurrency)
             }
         }
     }
