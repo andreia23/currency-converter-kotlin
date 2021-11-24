@@ -13,7 +13,6 @@ object UserTable : Table(name = "user") {
     val lastName = varchar("lastName", LASTNAME_LENGTH)
 
 }
-//procurar outra maneira de fazer isso
 fun ResultRow.toUser() = User(
     get(UserTable.name),
     get(UserTable.lastName)

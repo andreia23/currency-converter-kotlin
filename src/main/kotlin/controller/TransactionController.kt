@@ -11,7 +11,7 @@ class TransactionController(private val transactionService: TransactionService) 
     }
 
     fun getTransactionsByUser(ctx: Context) {
-        transactionService.transactionsByUser(ctx.pathParam(":id").toLong())?.let {
+        transactionService.transactionsByUser(ctx.pathParam("id").toLong())?.let {
             ctx.json(it) }
     }
 

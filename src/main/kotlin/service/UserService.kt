@@ -10,4 +10,7 @@ class UserService(
         userRepository.insert(user)
         return user
     }
+    fun findOneById(idUser: Long): User? {
+        return userRepository.findOneById(idUser)
+    }
 }
