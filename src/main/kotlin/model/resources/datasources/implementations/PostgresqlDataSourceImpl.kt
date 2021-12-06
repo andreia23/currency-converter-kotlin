@@ -4,6 +4,7 @@ import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import config.EnvironmentConfig
 import model.resources.datasources.DataSource
+import model.resources.schemas.TransactionTable
 import model.resources.schemas.UserTable
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
@@ -23,6 +24,8 @@ class PostgresqlDataSourceImpl(private val environmentConfig: EnvironmentConfig)
 
             transaction {
                 SchemaUtils.create(UserTable)
+                SchemaUtils.create(TransactionTable)
+
             }
         }
     }

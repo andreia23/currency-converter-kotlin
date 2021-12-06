@@ -10,7 +10,7 @@ object ServicesModule {
     fun modules() = module {
         single { UserService(get()) }
         single { TransactionService(get(), get()) }
-        single { ConversionService(get(), get()) }
+        single { ConversionService(get(), get(), get()) }
     }
 
 }

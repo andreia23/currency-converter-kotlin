@@ -6,6 +6,7 @@ import model.resources.repository.TransactionRepository
 import model.resources.schemas.TransactionTable
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
+import org.jetbrains.exposed.sql.transactions.transaction
 
 class TransactionRepositoryImpl : TransactionRepository {
 
@@ -13,12 +14,12 @@ class TransactionRepositoryImpl : TransactionRepository {
         TODO("Not yet implemented")
     }
 
-    override fun insert(transaction: Transaction): Transaction {
-        return transaction.apply {
+    override fun insert(transaction: Transaction) = transaction {
+        transaction.apply {
             TransactionTable.insert {
-                it[sourceCurrency] = transaction.sourceCurrency.toString()
+                it[sourceCurrency] = transaction.sourceCurrency
                 it[sourceValue] = transaction.sourceValue
-                it[destinationCurrency] = transaction.destinationCurrency.toString()
+                it[destinationCurrency] = transaction.destinationCurrency
                 it[conversionRate] = transaction.conversionRate
             }
         }
@@ -29,12 +30,12 @@ class TransactionRepositoryImpl : TransactionRepository {
 
         return transactions.apply {
             TransactionTable.selectAll().map { transactionRow ->
-                   val transactions = Transaction(
-                       sourceCurrency = transactionRow[TransactionTable.sourceCurrency],
-                       sourceValue = transactionRow[TransactionTable.sourceValue],
-                       destinationCurrency = transactionRow[TransactionTable.destinationCurrency],
-                       conversionRate = transactionRow[TransactionTable.conversionRate]
-                   )
+                val transactions = Transaction(
+                    sourceCurrency = transactionRow[TransactionTable.sourceCurrency],
+                    sourceValue = transactionRow[TransactionTable.sourceValue],
+                    destinationCurrency = transactionRow[TransactionTable.destinationCurrency],
+                    conversionRate = transactionRow[TransactionTable.conversionRate]
+                )
             }
         }
 

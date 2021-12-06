@@ -27,7 +27,8 @@ class StartAPI : KoinComponent {
                 RoutesModule.modules(),
                 ControllerModule.modules(),
                 ServicesModule.modules(),
-                RepositoryModule.modules()
+                RepositoryModule.modules(),
+                FuelModule.modules()
             )
         }
     }

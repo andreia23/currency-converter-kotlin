@@ -10,8 +10,8 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 class UserRepositoryImpl : UserRepository {
 
-    override fun findOneById(id: Long): User? {
-        return UserTable.select {
+    override fun findOneById(id: Long) = transaction {
+        UserTable.select {
             UserTable.id eq id
         }.map {
             it.toUser()

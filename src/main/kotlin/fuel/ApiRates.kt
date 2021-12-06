@@ -1,6 +1,5 @@
 package fuel
 
-interface Api {
-
+interface ApiRates {
     fun getRates(access_key: String): ApiRateResponse?
 }

@@ -11,7 +11,7 @@ object UserTable : Table(name = "user") {
     val id = long("id").autoIncrement().primaryKey()
     val name = varchar("name", NAME_LENGTH)
     val lastName = varchar("lastName", LASTNAME_LENGTH)
-
+//    val transactions =  reference("transaction", TransactionTable)
 }
 fun ResultRow.toUser() = User(
     get(UserTable.name),

@@ -23,6 +23,10 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:2.9.8")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")
     implementation("com.github.kittinunf.fuel:fuel:2.3.1")
+    implementation("com.google.code.gson:gson:2.8.9")
+    implementation("com.github.kittinunf.fuel:fuel-gson:2.3.1")
+
+
 
 
 

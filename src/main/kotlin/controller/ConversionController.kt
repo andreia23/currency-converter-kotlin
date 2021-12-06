@@ -8,9 +8,9 @@ class ConversionController(
     private val conversionService: ConversionService
 ) {
     fun convertCurrency(ctx:Context){
-        ctx.body<ConversionRequest>().run {
+        ctx.body<ConversionRequest>().apply {
             ctx.json(conversionService.convertCurrency
-                (ctx.pathParam(":id").toLong(),this))
+                (ctx.pathParam("id").toLong(),this))
 
         }
     }
